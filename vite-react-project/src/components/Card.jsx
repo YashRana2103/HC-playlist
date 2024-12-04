@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Card = () => {
+const Card = ({ username = " noUser ", post = " Staff Engineer " }) => {
   // const [imgUrl, setImgUrl] = useState("https://picsum.photos/300/300");
 
   // useEffect(() => {
@@ -12,14 +12,6 @@ const Card = () => {
   // }, []);
   return (
     <div>
-      {/* <img src="https://picsum.photos/500/200" alt="random image" />
-      <h1 className="text-2xl bg-green-500 p-3 mt -3 rounded">
-        Card for photos
-      </h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint,
-        delectus!
-      </p> */}
       <figure className="bg-slate-100 rounded-xl p-8 dark:bg-slate-800">
         <img
           className="w-24 h-24 rounded-full mx-auto"
@@ -37,8 +29,8 @@ const Card = () => {
             </p>
           </blockquote>
           <figcaption>
-            <div>Sarah Dayan</div>
-            <div>Staff Engineer, Algolia</div>
+            <h1>{username}</h1>
+            <div>{post}</div>
           </figcaption>
         </div>
       </figure>
