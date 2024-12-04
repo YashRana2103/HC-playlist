@@ -4,7 +4,7 @@ import BgChange from "./components/BgChange";
 function App() {
   return (
     <>
-      <BgChange />
+        <BgChange />
     </>
   );
 }
