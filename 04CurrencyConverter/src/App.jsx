@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <div className="bg-white dark:bg-gray-800 bg-opacity-80 dark:bg-opacity-80 p-8 rounded-xl shadow-2xl w-[400px] backdrop-blur-sm">
+        <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
+          <div className="flex justify-between items-center">
+            <div className="space-y-2">
+              <label className="text-sm text-gray-600 dark:text-gray-300 font-medium">
+                From
+              </label>
+              <input
+                type="number"
+                value="8321473972"
+                className="block w-full bg-transparent text-2xl font-semibold outline-none dark:text-white"
+              />
+            </div>
+            <select className="bg-transparent dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-2 py-1 text-gray-700 dark:text-gray-200">
+              <option value="USD">USD</option>
+              <option value="INR">INR</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="flex justify-center -my-2">
+          <button className="bg-blue-500 dark:bg-blue-600 text-white p-2 rounded-full hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors">
+            ⇅
+          </button>
+        </div>
+
+        <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-4">
+          <div className="flex justify-between items-center">
+            <div className="space-y-2">
+              <label className="text-sm text-gray-600 dark:text-gray-300 font-medium">
+                To
+              </label>
+              <input
+                type="number"
+                className="block w-full bg-transparent text-2xl font-semibold outline-none dark:text-white"
+              />
+            </div>
+            <select className="bg-transparent dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-2 py-1 text-gray-700 dark:text-gray-200">
+              <option value="INR">INR</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+            </select>
+          </div>
+        </div>
+
+        <button className="w-full bg-blue-500 dark:bg-blue-600 text-white py-3 px-4 rounded-lg mt-6 hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors font-medium">
+          Convert USD to INR
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
