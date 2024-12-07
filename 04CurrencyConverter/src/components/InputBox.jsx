@@ -48,35 +48,9 @@ export default function InputBox({
                 {currency}
               </option>
             ))}
-            {/* <option value="USD">USD</option>
-              <option value="INR">INR</option>
-              <option value="EUR">EUR</option>
-              <option value="GBP">GBP</option> */}
           </select>
         </div>
       </div>
-
-      {/* <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-4">
-          <div className="flex justify-between items-center">
-            <div className="space-y-2">
-              <label className="text-sm text-gray-600 dark:text-gray-300 font-medium">
-                {label}
-              </label>
-              <input
-                type="number"
-                className="block w-full bg-transparent text-2xl font-semibold outline-none dark:text-white"
-              />
-            </div>
-            <select className="bg-transparent dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-2 py-1 text-gray-700 dark:text-gray-200">
-              <option value="INR">INR</option>
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
-              <option value="GBP">GBP</option>
-            </select>
-          </div>
-        </div> */}
-
-     
     </>
   );
 }
