@@ -24,7 +24,7 @@ function Github() {
         />
       ) : (
         <div className="text-[#020887] text-center py-5 text-3xl">
-          Enter Username in url after ../github/
+          {`Enter Username in url after ../github/{here}`}
         </div>
       )}
     </div>

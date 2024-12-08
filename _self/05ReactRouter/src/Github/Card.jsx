@@ -2,7 +2,7 @@ import React from "react";
 
 function Card({ imgUrl, username, followers, following }) {
   return (
-    <div className="bg-white flex flex-col justify-center items-center h-screen px-4">
+    <>
       <img
         src={imgUrl}
         alt="User avatar"
@@ -13,7 +13,7 @@ function Card({ imgUrl, username, followers, following }) {
         <p className="text-[#647AA3] font-medium">Followers: {followers}</p>
         <p className="text-[#647AA3] font-medium">Following: {following}</p>
       </div>
-    </div>
+    </>
   );
 }
 
