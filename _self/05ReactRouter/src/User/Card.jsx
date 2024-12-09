@@ -1,5 +1,5 @@
 import React from "react";
-import "./card.css";
+import "./Card.css"; // Make sure to create this CSS file
 
 export default function Card({
   imgUrl,
@@ -25,13 +25,10 @@ export default function Card({
       <p className="text-[#334195] text-lg mb-2">Location: {location}</p>
       <p className="text-[#334195] text-lg mb-2">Email: {email}</p>
       <p className="text-[#334195] text-lg mb-4">Phone: {phone}</p>
-
       <button
         onClick={fetchUser}
         disabled={loading}
-        className={`bg-[#647AA3] text-white font-bold py-2 px-6 rounded hover:bg-[#95B2B0] transition duration-300 ${
-          loading ? "loading" : ""
-        }`}
+        className="bg-[#647AA3] text-white font-bold py-2 px-6 rounded hover:bg-[#95B2B0] transition duration-300"
         style={{
           cursor: loading ? "not-allowed" : "pointer",
         }}

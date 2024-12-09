@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import Card from "./Card";
+import { useParams } from "react-router-dom";
 
 function User() {
+  const { userid } = useParams(); // Extract userid from the URL params
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchUser();
-  }, []);
+    if (!userid) {
+      fetchUser(); // Fetch user data only if userid is not present
+    }
+  }, [userid]);
 
   function fetchUser() {
     setLoading(true);
@@ -31,7 +34,9 @@ function User() {
 
   return (
     <div className="bg-white flex flex-col justify-center items-center h-screen px-4">
-      {data ? (
+      {userid ? (
+        <p>User ID: {userid}</p>
+      ) : data ? (
         <Card
           imgUrl={data.picture.large}
           name={`${data.name.first} ${data.name.last}`}
