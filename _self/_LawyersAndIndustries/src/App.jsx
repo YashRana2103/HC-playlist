@@ -56,7 +56,14 @@ function App() {
   }, [industries]);
 
   const addIndustries = (industry) => {
-    setIndustries((prev) => [{ i_id: Date.now(), ...industry }, ...prev]);
+    setIndustries((prevIndustries) => {
+      const updatedIndustries = [
+        { i_id: Date.now(), ...industry },
+        ...prevIndustries,
+      ];
+      localStorage.setItem("industries", JSON.stringify(updatedIndustries)); // Save to localStorage
+      return updatedIndustries; // Update state
+    });
   };
 
   return (

@@ -10,12 +10,21 @@ function AddIndustries() {
   const add = (e) => {
     e.preventDefault();
     if (!industryName || !industryDesc) return;
-    const newIndustry = { i_name: industryName, i_desc: industryDesc };
-    // console.log("Adding industry:", newIndustry);
+
+    const newIndustry = {
+      i_id: Date.now(),
+      i_name: industryName,
+      i_desc: industryDesc,
+    };
+
+    // Add new industry and update localStorage
     addIndustries(newIndustry);
+
+    // Reset form inputs
     setIndustryName("");
     setIndustryDesc("");
   };
+
   return (
     <>
       <BackBtn />
