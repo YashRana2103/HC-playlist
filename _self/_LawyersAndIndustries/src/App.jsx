@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Route,
   RouterProvider,
@@ -17,6 +17,7 @@ import AddIndustries from "./forms/AddIndustries";
 import AddLawyers from "./forms/AddLawyers";
 import AddBlogs from "./forms/AddBlogs";
 import Forms from "./forms/Forms";
+import { IndustriesProvider } from "./contexts/IndustriesContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,11 +40,29 @@ const router = createBrowserRouter(
     </Route>
   )
 );
+
 function App() {
+  const [industries, setIndustries] = useState([]);
+
+  useEffect(() => {
+    const industries = JSON.parse(localStorage.getItem("industries"));
+    if (industries && industries.length > 0) {
+      setIndustries(industries);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("industries", JSON.stringify(industries));
+  }, [industries]);
+
+  const addIndustries = (industry) => {
+    setIndustries((prev) => [{ i_id: Date.now(), ...industry }, ...prev]);
+  };
+
   return (
-    <>
+    <IndustriesProvider value={{ industries, addIndustries }}>
       <RouterProvider router={router} />
-    </>
+    </IndustriesProvider>
   );
 }
 

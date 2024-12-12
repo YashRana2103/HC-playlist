@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import BackBtn from "./BackBtn";
-import { useIndustries } from "../contexts/IndustriesContext";
+import { useIndustries } from "../contexts";
 
 function AddIndustries() {
-  const [industry, setIndustry] = useState();
+  const [industryName, setIndustryName] = useState("");
+  const [industryDesc, setIndustryDesc] = useState("");
   const { addIndustries } = useIndustries();
 
-  const add = (e) =>{
+  const add = (e) => {
     e.preventDefault();
-    if(!industry) return;
-    addIndustries({})
-  }
+    if (!industryName || !industryDesc) return;
+    const newIndustry = { i_name: industryName, i_desc: industryDesc };
+    // console.log("Adding industry:", newIndustry);
+    addIndustries(newIndustry);
+    setIndustryName("");
+    setIndustryDesc("");
+  };
   return (
     <>
       <BackBtn />
       <div className="container mx-auto mt-4 p-4 bg-white shadow-md rounded-lg">
-        <form action="" method="POST">
+        <form onSubmit={add}>
           <div className="mb-4">
             <label
               htmlFor="industry_name"
@@ -27,6 +32,9 @@ function AddIndustries() {
               type="text"
               id="industry_name"
               name="industry_name"
+              placeholder="Enter Industry name"
+              value={industryName}
+              onChange={(e) => setIndustryName(e.target.value)}
               className="w-full p-2 border border-gray-300 rounded-md mt-2"
               required
             />
@@ -41,6 +49,9 @@ function AddIndustries() {
             <textarea
               id="description"
               name="description"
+              placeholder="Enter Industry description"
+              value={industryDesc}
+              onChange={(e) => setIndustryDesc(e.target.value)}
               className="w-full p-2 border border-gray-300 rounded-md mt-2"
               required
             />

@@ -20,7 +20,20 @@ function Functioning() {
     setBlogs((prev) => [{ b_id: Date.now(), ...blog }, ...prev]);
   };
 
-  useEffect(() => {});
+  useEffect(() => {
+    const industries = JSON.parse(localStorage.getItem("industries"));
+    const lawyers = JSON.parse(localStorage.getItem("lawyers"));
+    const blogs = JSON.parse(localStorage.getItem("blogs"));
+    if (industries && industries.length > 0) {
+      setIndustries(industries);
+    }
+    if (lawyers && lawyers.length > 0) {
+      setLawyers(lawyers);
+    }
+    if (blogs && blogs.length > 0) {
+      setBlogs(blogs);
+    }
+  }, []);
 }
 
 export default Functioning;
